@@ -1,0 +1,29 @@
+---data:
+    ---output:所有样本数据
+    ---test:测试集样本数据，带子文件夹
+    ---test_after_process:经过降噪处理的测试集样本数据，带子文件夹
+    ---train:训练集样本数据，带子文件夹
+    ---train_after_process:经过降噪处理的训练集样本数据，带子文件夹
+---models:神经网络模型
+---picture:存放混淆矩阵图片,后缀有1代表为降噪后的效果
+---save_model:
+    ---CRNN:保存crnn的检查点
+    ---KNN:保存knn的距离矩阵和样本标签，后缀有1代表为降噪后数据计算出来的
+    ---Resnet:保存resnet的检查点
+    ---transfer_vgg16:保存transfer——vgg16的检查点
+    label_dict.npy:保存神经网络所需的类标签
+---Util:
+    ---dataloader:
+        ---Dataloader.py:用于神经网络数据预处理
+    ---dtw.py:用于计算dtw距离
+    ---setup.py:用于代码加密
+---step1_preprocess.py:数据预处理，数据降噪
+---step2_KNN_cal_distance_matrix.py:计算dtw矩阵
+---step2_train_CRNN.py:训练CRNN模型
+---step2_train_Resnet.py:训练Resnet模型
+---step2_train_vgg.py:训练迁移vgg模型
+---step3_test_CRNN.py:测试CRNN模型
+---step3_test_KNN.py:测试KNN模型
+---step3_test_Resnet.py:测试Resnet模型
+---step3_test_vgg.py:测试迁移vgg模型
+---step4_plot_confusion_matrix.py:绘制混淆矩阵
